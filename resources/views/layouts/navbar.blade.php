@@ -91,7 +91,10 @@
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                     <ul class="navbar-nav align-items-center">
                         <!-- Profile dropdown -->
-                        
+                        <a class="navbar-brand ms-2" href="#">
+      <img src="../assets/images/logos/logomp.png" alt="Logo" style="height: 30px;">
+      
+    </a>
                            
                         </li>
                     </ul>
