@@ -32,7 +32,29 @@
                 },
             },
         }
+
+
+        
     </script>
+
+<style>
+        .product-card:hover {
+            transform: translateY(-10px);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .success-message {
+            position: fixed;
+            bottom: 4rem;
+            right: 4rem;
+            background-color: #0ea5e9;
+            color: white;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 20;
+        }
+    </style>
 </head>
 <body class="bg-gray-50 font-sans">
     <div class="min-h-screen flex flex-col">
@@ -125,8 +147,13 @@
             <div class="mb-6">
                 <div class="flex justify-between items-center mb-4">
                     <h3 class="text-xl font-semibold text-gray-800">Produk Saya</h3>
-                    
+                   
+                    <input type="text" id="searchInput" placeholder="Cari produk..." 
+                    class="w-full max-w-md px-4 py-3 mb-4 border border-gray-300 rounded-lg shadow-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 placeholder:text-gray-400 text-gray-700 text-sm transition-all duration-300 ease-in-out hover:border-primary-500 hover:shadow-xl">
                 </div>
+
+                
+              
                 
                 @if(count($uploads) > 0)
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -238,6 +265,35 @@
                 document.getElementById('logoutForm').submit();
             }
         });
+
+        document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('searchInput');
+    
+    if (!searchInput) {
+        console.error("Search input not found");
+        return;
+    }
+    
+    searchInput.addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase().trim();
+        
+        // Get all product cards - using very basic selectors
+        // This targets any div within the grid that might be a product card
+        document.querySelectorAll('.grid > div').forEach(function(card) {
+            // Get all text content from the card
+            const cardText = card.textContent.toLowerCase();
+            
+            // If any text in the card matches the search term, show it
+            if (cardText.includes(searchTerm)) {
+                card.style.display = '';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    });
+    
+    console.log("Simple search functionality initialized");
+});
     </script>
 </body>
 </html>
