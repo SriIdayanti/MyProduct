@@ -173,8 +173,9 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>Upload Berhasil</h1>
-            <p>Produk Anda telah berhasil diunggah ke sistem!</p>
+        <h1>Produk Terbaru</h1>
+<p>Telah tersedia produk terbaru yang baru saja diunggah.</p>
+
         </div>
         
         <div class="product-info">
