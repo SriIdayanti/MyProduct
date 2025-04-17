@@ -33,4 +33,10 @@ class Penilaian extends Model
             }
         });
     }
+    // Model Upload.php
+public function penilaians()
+{
+    return $this->hasMany(Penilaian::class);
+}
+
 }
