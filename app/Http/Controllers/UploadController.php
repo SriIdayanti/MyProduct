@@ -133,13 +133,14 @@ class UploadController extends Controller
     }
 
    // app/Http/Controllers/UploadController.php
-public function show($id)
-{
-    // Ambil data upload beserta penilaians terkait
-    $upload = Upload::with('penilaians')->findOrFail($id);
-
-    return view('upload.show', compact('upload'));
-}
+   public function show($id)
+   {
+       // Ambil data upload beserta penilaians terkait
+       $upload = Upload::with('penilaians')->findOrFail($id);
+   
+       return view('upload.show', compact('upload'));
+   }
+   
 
 public function kirimLaporan()
     {
